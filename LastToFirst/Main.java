@@ -4,10 +4,12 @@ public class Main {
     public static void main(String[] args) {
        LastToFirst list = new LastToFirst();
 
-       list.insertAtEnd(1);
-         list.insertAtEnd(2);
-         list.insertAtEnd(3);
-            list.insertAtEnd(4);
+       int[] input = {1,2,3,4};
+       for (int num : input) {
+           list.insertAtEnd(num);
+       }
+
+  
 
         System.out.println("Original List:");
         list.printList();

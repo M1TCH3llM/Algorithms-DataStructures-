@@ -4,11 +4,20 @@ public class Main {
     public static void main(String[] args) {
        Palindrome list = new Palindrome();
 
-        list.insertAtEnd(1);
-        list.insertAtEnd(2);
-        list.insertAtEnd(3);
-        list.insertAtEnd(2);
-        list.insertAtEnd(1);
+        int[] input = {1, 2, 3, 2, 1}; // Example input that is a palindrome
+        for (int num : input) {
+            list.insertAtEnd(num);
+        }
+
+        // int[] input = {1, 2, 3, 2, 3}; // Example input that is a palindrome
+        // for (int num : input) {
+        //     list.insertAtEnd(num);
+        // }
+
+        // int[] input = {1, 2, 3, 3, 2, 1}; // Example input that is a palindrome
+        // for (int num : input) {
+        //     list.insertAtEnd(num);
+        // }
 
         System.out.println("Initial list:");
         list.printList();

@@ -12,7 +12,8 @@ public class Main {
         System.out.print("Original list: ");
         list.printList();
 
-        int difference = 3;
+        int diff = 2; // Set the difference value
+        int difference = diff + 1;//
         list.deleteAtDifference(difference);
 
         System.out.print("After deleting with difference " + difference + ": ");
