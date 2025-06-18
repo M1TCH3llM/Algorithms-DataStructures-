@@ -16,7 +16,7 @@ public class Main {
         int difference = diff + 1;//
         list.deleteAtDifference(difference);
 
-        System.out.print("After deleting with difference " + difference + ": ");
+        System.out.print("After deleting with difference " + diff + ": ");
         list.printList();
     }
 }

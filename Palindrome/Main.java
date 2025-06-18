@@ -24,10 +24,10 @@ public class Main {
         
         System.out.println("");
         // Reverse the linked list
-        list.reverse();
-        System.out.println("Reversed list:");
-        list.printList();
-        System.out.println("");
+        // list.reverse();
+        // System.out.println("Reversed list:");
+        // list.printList();
+        // System.out.println("");
         // Check if the list is a palindrome
       
         if (list.isPalindrome()) {

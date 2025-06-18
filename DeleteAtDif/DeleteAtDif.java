@@ -18,11 +18,11 @@ public class DeleteAtDif {
     }
 
     // Keep only every 'difference'-th node
-    public void deleteAtDifference(int difference) {
-        if (head == null || difference <= 0) return;
+    public void deleteAtDifference(int difference) { 
+        if (head == null || difference <= 0) return; // If the list is empty or difference is invalid, do nothing
 
         Node current = head;
-
+        
         while (current != null) {
             Node runner = current;
             for (int i = 1; i < difference && runner.next != null; i++) {
