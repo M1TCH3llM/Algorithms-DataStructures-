@@ -1,6 +1,6 @@
 package Palindrome;
 
-import java.util.Stack;
+// import java.util.Stack;
 
 public class Palindrome {
     private Node head, tail; // Head of the linked list
@@ -64,8 +64,7 @@ public class Palindrome {
 
 
           Node first = head;
-            Node second = secondHalf;
-            boolean result = true;
+          Node second = secondHalf;
 
             while (second != null) {
                 if (first.data != second.data) {
