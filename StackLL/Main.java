@@ -19,9 +19,21 @@ public class Main {
 
         stack.printStack();
 
+        stack.push(22);
+
+        stack.printStack();
 
     }
     // Insert at begining & Delete From Begining
 
 
 }
+
+//Home work Jun 23rd
+// Using Stack
+// Implement Stack Using Array 
+// Check the nesting of parethaneses (valid expression)
+// Convert infix to post fix
+// evaluating postfix expressions
+// convert decimal to binary & vice versa
+
