@@ -1,4 +1,4 @@
-package StackLL ;
+package Stack.StackLL ;
 
 public class Main {
     // implement a stack with five elements using a linked list

@@ -1,4 +1,4 @@
-package StackImpArray;
+package Stack.StackImpArray;
 
 public class StackImpArray {
     int top, cap;

@@ -1,4 +1,4 @@
-package StackImpArray;
+package Stack.StackImpArray;
 
 public class Main {
 
@@ -9,7 +9,7 @@ public class Main {
         s.push(30); 
         s.push(70); 
         s.push(40); 
-        
+    
        System.out.print("Stack before pop: ");
         s.printStack();
 
@@ -17,5 +17,7 @@ public class Main {
 
         System.out.print("Stack after pop: ");
         s.printStack();
+
+        System.out.print(s.peek());
     }
 }

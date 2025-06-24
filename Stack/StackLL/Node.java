@@ -1,4 +1,4 @@
-package StackLL ;
+package Stack.StackLL ;
 
 public class Node {
     int data;
