@@ -69,20 +69,7 @@ public class Main {
 
 
 
-// iven two linked lists sorted in increasing order.
-//  Merge them such a way that the result list is in decreasing order (reverse order).
 
-// Examples:
-
-// Input:  a: 5->10->15->40
-//         b: 2->3->20
-// Output: res: 40->20->15->10->5->3->2
-
-// Input:  a: NULL
-//         b: 2->3->20
-// Output: res: 20->3->2
-
-// ===========================================================
 
 // Given the head of a linked list, remove the nth node from the end of the list and return its head.
 // Follow up: Could you do this in one pass?
