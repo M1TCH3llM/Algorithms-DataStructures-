@@ -29,6 +29,7 @@ System.out.println("Ater delete:");
 
 System.out.println("Ater delete 2:");
         list.printList();
+        
 
 
 }
