@@ -15,6 +15,12 @@ public class TreeLL {
         }
     }
 
+  class TreeNode {
+    String val;
+    TreeNode left, right;
+    TreeNode(String val) { this.val = val; }
+}
+
     // Print the entire linked list
     public void printList() {
         if (head == null) {
@@ -31,18 +37,60 @@ public class TreeLL {
         System.out.println("null");
     }
 
-    // Insert a node at the end of the list
-    public void insertAtEnd(String data) {
-        Node newNode = new Node(data);
+    public void printInorder(TreeNode root) {
+    if (root == null) return;
+    printInorder(root.left);
+    System.out.print(root.val + " ");
+    printInorder(root.right);
+}
+    public void printPreorder(TreeNode root) {
+    if (root == null) return;
+    System.out.print(root.val + " ");
+    printPreorder(root.left);
+    printPreorder(root.right);
+}
 
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            tail.next = newNode;
-            tail = newNode;
+
+    public void insertAtEnd(String value) {
+    Node newNode = new Node(value);
+    if (head == null) {
+        head = tail = newNode;
+    } else {
+        tail.next = newNode;
+        tail = newNode;
+    }
+}
+
+public TreeNode createTreeFromLinkedList() {
+    if (head == null) return null;
+
+    java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+    TreeNode root = new TreeNode(head.data);
+    queue.add(root);
+
+    Node currentListNode = head.next;
+
+    while (currentListNode != null) {
+        TreeNode parent = queue.poll();
+
+        // Left child
+        TreeNode left = new TreeNode(currentListNode.data);
+        parent.left = left;
+        queue.add(left);
+        currentListNode = currentListNode.next;
+
+        // Right child
+        if (currentListNode != null) {
+            TreeNode right = new TreeNode(currentListNode.data);
+            parent.right = right;
+            queue.add(right);
+            currentListNode = currentListNode.next;
         }
     }
 
-    
+    return root;
+}
+
+
+
 }

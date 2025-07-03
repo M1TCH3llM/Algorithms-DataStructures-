@@ -124,3 +124,19 @@ static String[] tree = {
 //  // the left subtree
 // 4. Preorder (right child of root) // Recursive call to Preorder for traversing the 
 //  //
+
+
+
+// public Node create(int[] arr, Node root, int i) {
+//         if (i < arr.length) {
+//             Node temp = new Node(arr[i]);
+//             root = temp;
+        
+//             // insert left child
+//             root.left = create(arr, root.left, 2 * i + 1);
+
+//             // insert right child
+//             root.right = create(arr, root.right, 2 * i + 2);
+//         }
+//         return root;
+//     }

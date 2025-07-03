@@ -23,7 +23,7 @@ public class Main {
                 circularQueue.enqueue(7);
 
 
-        printArray(circularQueue);
+        circularQueue.print();
 
     }
 }

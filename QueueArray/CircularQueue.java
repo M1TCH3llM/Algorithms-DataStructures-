@@ -100,5 +100,21 @@ public class CircularQueue {
         }
         System.out.println();
     }
+
+   public void print() {
+    if (isEmpty()) {
+        System.out.println("Empty queue");
+        return;
+    }
+
+    System.out.print("Queue elements: ");
+    int i = front;
+    while (true) {
+        System.out.print(queueArray[i] + " ");
+        if (i == rear) break;
+        i = (i + 1) % maxSize;
+    }
+    System.out.println();
+}
     
 }
