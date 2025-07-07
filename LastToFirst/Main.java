@@ -15,7 +15,7 @@ public class Main {
         list.printList();
 
         System.out.println("After moving last to front:");
-list.moveLastToFirst();
-list.printList();
+        list.moveLastToFirst();
+        list.printList();
     }
 }
