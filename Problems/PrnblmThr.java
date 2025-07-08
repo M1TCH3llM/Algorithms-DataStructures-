@@ -56,6 +56,7 @@ public class PrnblmThr {
         Node newNode = new Node(data);
         previous.next = newNode;
         newNode.next = current;
+        
     }
 
     public void printList() {
