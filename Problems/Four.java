@@ -1,3 +1,15 @@
+// PROBLEM4:
+
+// Given the head of a singly linked list, return true if it is a palindrome ,do it without reversing the linkedlist.
+// Example 1:
+// Input: head = [1,2,2,1]
+// Output: true
+// Example 2:
+// Input: head = [1,2]
+// Output: false
+
+
+
 package Problems;
 
 public class Four {

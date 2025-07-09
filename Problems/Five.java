@@ -1,3 +1,9 @@
+// write a program to reverse the consecutive  even nodes of the linked list 
+// input:{ 1, 2, 3, 3, 4, 6, 8, 5 }
+// output:{1, 2, 3, 3, 8, 6, 4, 5 }
+
+
+
 package Problems;
 
 
