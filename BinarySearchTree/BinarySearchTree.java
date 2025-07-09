@@ -35,6 +35,8 @@ public class BinarySearchTree {
 
         displayHelper(root);
      }
+     // In-order traversal of the tree
+        // Left, Root, Right
      private void displayHelper(Node root) {
         if(root != null) {
             displayHelper(root.left);
@@ -42,24 +44,32 @@ public class BinarySearchTree {
             displayHelper(root.right);
         } 
      }
+     // Search for a node with the given data
+        // Returns true if found, false otherwise
      public boolean search(int data) {
          return searchHelper(root, data);
      }
-     private boolean searchHelper(Node root, int data) {
 
+     private boolean searchHelper(Node root, int data) {
+        // Base case: if the root is null, the data is not found
+        // If the root is not null, check if the data matches the root's data
         if(root == null) {
             return false;
         }
+        // If the data is equal to the root's data, return true
         else if (root.data == data) {
             return true;
         }
+        // If the data is less than the root's data, search in the left subtree
         else if (root.data > data) {
             return searchHelper(root.left, data);
         }
         else {
+            // If the data is greater than the root's data, search in the right subtree
             return searchHelper(root.right, data);
         }
      }
+
     public void delete(int data) {
         if (search(data)) {
         deleteHelper(root, data);
@@ -97,16 +107,23 @@ public class BinarySearchTree {
         }
         return root;
     }
+    // Find the successor of the node to be deleted
+    // The successor is the minimum value in the right subtree
     private int successor(Node root) { // find the minimum value in the right child of this root node
        root = root.right;
+       // Traverse to the leftmost node in the right subtree
+       // The leftmost node will have the minimum value
         while (root.left != null) {
             root = root.left;
         }
         return root.data;
     }
-
+    // Find the predecessor of the node to be deleted
+    // The predecessor is the maximum value in the left subtree
     private int predecessor(Node root) {
          root = root.left;
+         // Traverse to the rightmost node in the left subtree
+            // The rightmost node will have the maximum value
         while (root.right != null) {
             root = root.right;
         }

@@ -3,7 +3,8 @@ package Stack.StackImpArray;
 public class StackImpArray {
     int top, cap;
     int[] a;
-
+    // Constructor to initialize the stack with a given capacity
+    // The stack is initially empty, so top is set to -1
     public StackImpArray(int cap) {
         this.cap = cap;
         top = -1;
@@ -18,7 +19,8 @@ public class StackImpArray {
         a[++top] = x;
         return true;
     }
-
+    // Removes and returns the top element of the stack
+    // If the stack is empty, it returns 0 and prints "Stack Underflow"
     public int pop() {
         if(top < 0) {
             System.out.println("Stacl Underflow");
@@ -26,7 +28,8 @@ public class StackImpArray {
         }
         return a[top--];
     }
-
+    // Returns the top element of the stack without removing it
+    // If the stack is empty, it returns 0 and prints "Stack is Empty"
     public int peek() {
         if (top < 0) {
             System.out.println("Stack is Empty");
