@@ -17,13 +17,16 @@ public class Max {
         int left    = 2 * i + 1;
         int right   = 2 * i + 2;
 
+        // Check if left child exists and is greater than root
         if (left < n && arr[left] > arr[largest]) {
             largest = left;
         }
+        // Check if right child exists and is greater than largest so far
         if (right < n && arr[right] > arr[largest]) {
             largest = right;
         }
 
+        // If largest is not root, swap and continue heapifying
         if (largest != i) {
             int temp = arr[i];
             arr[i] = arr[largest];
@@ -39,13 +42,16 @@ public class Max {
         int left     = 2 * i + 1;
         int right    = 2 * i + 2;
 
+        // Check if left child exists and is smaller than root
         if (left < n && arr[left] < arr[smallest]) {
             smallest = left;
         }
+        // Check if right child exists and is smaller than smallest so far
         if (right < n && arr[right] < arr[smallest]) {
             smallest = right;
         }
 
+        // If smallest is not root, swap and continue heapifying
         if (smallest != i) {
             int temp = arr[i];
             arr[i] = arr[smallest];
@@ -59,10 +65,11 @@ public class Max {
     static void heapSortAscending(int[] arr) {
         int n = arr.length;
 
+        // Build max heap
         for (int i = n / 2 - 1; i >= 0; i--) {
             maxHeapify(arr, n, i);
         }
-
+        // Extract elements from heap one by one
         for (int i = n - 1; i >= 0; i--) {
             int temp = arr[0];
             arr[0] = arr[i];
