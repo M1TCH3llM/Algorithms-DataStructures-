@@ -1,151 +1,111 @@
+
+
+
+// Advantages of Heap Sort
+// Efficient Time Complexity: Heap Sort has a time complexity of O(n log n) in all cases. This makes it efficient for sorting large datasets. The log n factor comes from the height of the binary heap, and it ensures that the algorithm maintains good performance even with a large number of elements.
+// Memory Usage: Memory usage can be minimal (by writing an iterative heapify() instead of a recursive one). So apart from what is necessary to hold the initial list of items to be sorted, it needs no additional memory space to work
+// Simplicity: It is simpler to understand than other equally efficient sorting algorithms because it does not use advanced computer science concepts such as recursion.
+
+
 package HeapSort;
 
 public class Max {
-    private int[] Heap;
-    private int size;
-    private int maxsize;
 
-    // Constructor to initialize an
-    // empty max heap with given maximum
-    // capacity
-    public Max(int maxsize)
-    {
-        // This keyword refers to current instance itself
-        this.maxsize = maxsize;
-        this.size = 0;
-        Heap = new int[this.maxsize];
-    }
+    // Builds a Max Heap (used for ascending sort)
+    static void maxHeapify(int[] arr, int n, int i) {
+        int largest = i;
+        int left    = 2 * i + 1;
+        int right   = 2 * i + 2;
 
-    // 1
-    // Returns possition of parent node
-    private int parent(int pos) {
-        return (pos - 1) / 2;
-    }
-
-    //2 
-    // Returns possition of left child node
-    private int leftChild(int pos) {
-        return (2 * pos) + 1;
-    }
-
-    // 3
-    // Returns possition of right child node
-    private int rightChild(int pos) {
-        return (2 * pos) + 2;
-    }
-
-    // 4
-    // Checks if the node at the given position is a leaf node
-    private boolean isLeaf(int pos) {
-        if (pos > (size / 2) && pos <= size) {
-            return true;
+        if (left < n && arr[left] > arr[largest]) {
+            largest = left;
         }
-        return false;
+        if (right < n && arr[right] > arr[largest]) {
+            largest = right;
         }
 
-    // 5
-    // Swaps two nodes in the heap
-    private void swap(int fpos, int spos) {
-        int temp;
-        temp = Heap[fpos];
-        Heap[fpos] = Heap[spos];
-        Heap[spos] = temp;
+        if (largest != i) {
+            int temp = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = temp;
 
+            maxHeapify(arr, n, largest);
+        }
     }
 
-    // 6
-    // Recursively heapifies the tree to maintain the max heap property
-    private void maxHeapify(int pos)   {
-        if (isLeaf(pos)) {
-            return;
+    // Builds a Min Heap (used for descending sort)
+    static void minHeapify(int[] arr, int n, int i) {
+        int smallest = i;
+        int left     = 2 * i + 1;
+        int right    = 2 * i + 2;
+
+        if (left < n && arr[left] < arr[smallest]) {
+            smallest = left;
         }
-        if (Heap[pos] < Heap[leftChild(pos)] || Heap[pos] < Heap[rightChild(pos)]) {
-            if (Heap[leftChild(pos)] > Heap[rightChild(pos)]) {
-                swap(pos, leftChild(pos));
-                maxHeapify(pos);
-            } else {
-                swap(pos, rightChild(pos));
-                maxHeapify(rightChild(pos));
-            }
+        if (right < n && arr[right] < arr[smallest]) {
+            smallest = right;
         }
+
+        if (smallest != i) {
+            int temp = arr[i];
+            arr[i] = arr[smallest];
+            arr[smallest] = temp;
+
+            minHeapify(arr, n, smallest);
+        }
+    }
+
+    // Heap sort ascending (uses max heap)
+    static void heapSortAscending(int[] arr) {
+        int n = arr.length;
+
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            maxHeapify(arr, n, i);
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            maxHeapify(arr, i, 0);
+        }
+    }
+
+    // Heap sort descending (uses min heap)
+    static void heapSortDescending(int[] arr) {
+        int n = arr.length;
+
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            minHeapify(arr, n, i);
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            minHeapify(arr, i, 0);
+        }
+    }
+
+    static void printArray(int[] arr) {
+        for (int val : arr) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {9, 4, 3, 8, 10, 2, 5};
+        int[] arr2 = arr1.clone();
+
+        System.out.print("Ascending order: ");
+        heapSortAscending(arr1);
+        printArray(arr1);
+
+        System.out.print("Descending order: ");
+        heapSortDescending(arr2);
+        printArray(arr2);
+    }
 }
-
-public void insert(int element) {
-    Heap[size] = element;
-    int current = size;
-    while (Heap[current] > Heap[parent(current)])
-    {
-        swap(current, parent(current));
-        current = parent(current);
-    }
-    size++;
-}
-
- public void print()
-    {
-
-        for (int i = 0; i < size / 2; i++) {
-
-            System.out.print("Parent Node : " + Heap[i]);
-
-            if (leftChild(i)
-                < size) // if the child is out of the bound
-                        // of the array
-                System.out.print(" Left Child Node: "
-                                 + Heap[leftChild(i)]);
-
-            if (rightChild(i)
-                < size) // the right child index must not
-                        // be out of the index of the array
-                System.out.print(" Right Child Node: "
-                                 + Heap[rightChild(i)]);
-
-            System.out.println(); // for new line
-        }
-    }
-
-    // Method 9
-    // Remove an element from max heap
-    public int extractMax()
-    {
-        int popped = Heap[0];
-        Heap[0] = Heap[--size];
-        maxHeapify(0);
-        return popped;
-    }
-
-    // Method 10
-    // main driver method
-    public static void main(String[] arg)
-    {
-        // Display message for better readability
-        System.out.println("The Max Heap is ");
-
-        Max maxHeap = new Max(15);
-
-        // Inserting nodes
-        // Custom inputs
-        maxHeap.insert(5);
-        maxHeap.insert(3);
-        maxHeap.insert(17);
-        maxHeap.insert(10);
-        maxHeap.insert(84);
-        maxHeap.insert(19);
-        maxHeap.insert(6);
-        maxHeap.insert(22);
-        maxHeap.insert(9);
-
-        // Calling maxHeap() as defined above
-        maxHeap.print();
-
-        // Print and display the maximum value in heap
-        System.out.println("The max val is "
-                           + maxHeap.extractMax());
-    }
-    
-}
-
-
-// min heap 
-// max heap 
-//heap sort
