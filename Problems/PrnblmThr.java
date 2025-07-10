@@ -1,4 +1,22 @@
+
+// PROBLEM3:
+// Given two unsorted Linked List, the task is to merge them to get a sorted singly linked list.
+// Examples:
+
+// Input: List 1 = 3 -> 1 -> 5, List 2 = 6-> 2 -> 4
+// Output: 1 -> 2 -> 3 -> 4 -> 5 -> 6
+
+// Input: List 1 = 4 -> 7 -> 5, List 2 = 2-> 1 -> 8 -> 1
+// Output: 1 -> 1 -> 2 -> 4 -> 5 -> 7 -> 8
+
+
+
+
+
 package Problems;
+
+
+
 
 
 public class PrnblmThr {

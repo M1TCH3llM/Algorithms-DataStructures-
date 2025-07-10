@@ -21,8 +21,8 @@ public class Main {
             System.out.println("\nSearching for 36: " + tree.search(36));
             System.out.println("\nSearching for 0: " + tree.search(0));
 
-            System.out.println("\ndelete 36:");
-            tree.delete(36);
+            System.out.println("\ndelete 52:");
+            tree.delete(52);
             tree.display();
 
             System.out.println("\ndelete 0:");

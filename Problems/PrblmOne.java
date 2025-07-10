@@ -1,3 +1,12 @@
+// PROBLEM1:
+// Modify linked list in such a way that last node become the first node of the list.
+// eg:
+// list:{1,2,3,4}
+// output:{4,1,2,3}
+
+
+
+
 package Problems;
 
 import LastToFirst.LastToFirst;
