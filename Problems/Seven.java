@@ -98,10 +98,15 @@ public class Seven {
 public static void main(String[] args) {
         Seven.LinkedList list1 = new Seven.LinkedList();
         Seven.LinkedList list2 = new Seven.LinkedList();
+        Seven.LinkedList list3 = new Seven.LinkedList();
+        Seven.LinkedList list4 = new Seven.LinkedList();
         Seven seven = new Seven();
 
         int[] arr1 = {5, 10, 15, 40};
         int[] arr2 = {2, 3, 20};
+       
+        int[] arr3 = {};
+        int[] arr4 = {2, 3, 20};
         
         for (int x : arr1) {
             list1.insert(x);
@@ -110,16 +115,30 @@ public static void main(String[] args) {
         for (int x : arr2) {
             list2.insert(x);
         }
+        for (int x : arr3) {
+            list3.insert(x);
+        }
+        
+        for (int x : arr4) {
+            list4.insert(x);
+        }
 
         System.out.println("List 1:");
         seven.printList(list1.head); 
         System.out.println("List 2:");
         seven.printList(list2.head);
+        System.out.println("List 3:");
+        seven.printList(list3.head); 
+        System.out.println("List 4:");
+        seven.printList(list4.head);
 
         
         Node mergedList = seven.sortedMerge(list1.head, list2.head);
+        Node mergedList2 = seven.sortedMerge(list3.head, list4.head);
         
         System.out.println("Merged List in Reverse Order:");
         seven.printList(mergedList);
+        System.out.println("Merged List in Reverse Order:");
+        seven.printList(mergedList2);
     }
 }
