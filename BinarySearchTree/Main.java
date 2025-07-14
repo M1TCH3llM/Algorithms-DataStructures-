@@ -38,3 +38,5 @@ public class Main {
 // Delete
 // Traversal (In-order, Pre-order, Post-order)
 
+// hight of binary search tree
+// find sum of leaf nodes 

@@ -1,3 +1,7 @@
+
+// Write a program to implement a stack by using an array that can store five elements.
+
+
 package Problems;
 
 public class Eleven {
@@ -60,7 +64,7 @@ public static class StackImpArray {
    public static void main(String[] args) {
   StackImpArray array = new StackImpArray(5); 
 
-    int[] arr = {52, 36, 38, 68, 24};
+    int[] arr = {52, 36, 38, 68, 24, 80};
     for (int x : arr) {
         array.push(x);
     }

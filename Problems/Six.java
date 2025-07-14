@@ -49,7 +49,7 @@ public class Six {
         // The first list will contain the n smallest elements, and the second list will contain the
        public void mergeLists(Node a, Node b) {
             while (a != null && b != null) { // While both lists have nodes
-                if (a.data > b.data) {
+                if (a.data > b.data) { //
 
                     int temp =a.data; // Store the data of the first list node
                     a.data = b.data; // Replace the first list node's data with the second list
@@ -58,7 +58,7 @@ public class Six {
                     Node temp2 = b;
 
                     if (b.next != null && b.next.data < b.data) { // If the next node in the second list is smaller than the current node in the first list
-                      b = b.next; // Move to the next node in the second list
+                        b = b.next; // Move to the next node in the second list
                       Node ptr = b; // Pointer to traverse the second list
                       Node prev = null; // Pointer to keep track of the previous node in the second list
                    

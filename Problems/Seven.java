@@ -127,17 +127,19 @@ public static void main(String[] args) {
         seven.printList(list1.head); 
         System.out.println("List 2:");
         seven.printList(list2.head);
+        Node mergedList = seven.sortedMerge(list1.head, list2.head);
+        System.out.println("Merged List 1 & 2 in Reverse Order:");
+        seven.printList(mergedList);
+
+
         System.out.println("List 3:");
         seven.printList(list3.head); 
         System.out.println("List 4:");
         seven.printList(list4.head);
 
         
-        Node mergedList = seven.sortedMerge(list1.head, list2.head);
         Node mergedList2 = seven.sortedMerge(list3.head, list4.head);
         
-        System.out.println("Merged List in Reverse Order:");
-        seven.printList(mergedList);
         System.out.println("Merged List in Reverse Order:");
         seven.printList(mergedList2);
     }
