@@ -20,22 +20,22 @@ public class PostOrder {
             inorderMap.put(inorder[i], i); // map value to its index in inorder
         }
 
-        int[] postIndex = {postorder.length - 1}; // simulate reference
+        int[] postIndex = {postorder.length - 1}; // simulate reference last element of array
         return buildTreeHelper(inorder, postorder, 0, inorder.length - 1, postIndex, inorderMap);
     }
 
-    private TreeNode buildTreeHelper(int[] inorder, int[] postorder,
-                                     int inStart, int inEnd, int[] postIndex,
-                                     HashTable inorderMap) {
+    private TreeNode buildTreeHelper(int[] inorder, int[] postorder, int inStart, int inEnd, int[] postIndex, HashTable inorderMap) {
         if (inStart > inEnd) return null;
 
-        int rootVal = postorder[postIndex[0]--];
+        int rootVal = postorder[postIndex[0]--]; // move across array from right to left
         TreeNode root = new TreeNode(rootVal);
 
         Integer rootIdx = inorderMap.get(rootVal);
         if (rootIdx == null) return null;
 
+        // Build right sub tree
         root.right = buildTreeHelper(inorder, postorder, rootIdx + 1, inEnd, postIndex, inorderMap);
+        // Build left subtree
         root.left = buildTreeHelper(inorder, postorder, inStart, rootIdx - 1, postIndex, inorderMap);
 
         return root;

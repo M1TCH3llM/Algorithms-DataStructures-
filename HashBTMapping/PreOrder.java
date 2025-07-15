@@ -22,13 +22,11 @@ public class PreOrder {
             inorderMap.put(inorder[i], i); // map value to its index in inorder
         }
 
-        int[] preIndex = {0}; // simulate reference
+        int[] preIndex = {0}; // simulate reference first element of array
         return buildTreeHelper(inorder, preorder, 0, inorder.length -1, preIndex, inorderMap);
     }
 
-    private TreeNode buildTreeHelper(int[] inorder, int[] preorder,
-                                     int inStart, int inEnd, int[] preIndex,
-                                     HashTable inorderMap) {
+    private TreeNode buildTreeHelper(int[] inorder, int[] preorder, int inStart, int inEnd, int[] preIndex, HashTable inorderMap) {
         if (inStart > inEnd) return null;
 
          // Take current preorder element as root
@@ -65,6 +63,7 @@ public class PreOrder {
     while (front < rear) {
         TreeNode current = queue[front++];
 
+        // inserts null if no value 
         if (current == null) {
             output[outputIndex++] = "null";
             continue;
