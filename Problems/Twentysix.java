@@ -23,8 +23,8 @@ public class Twentysix {
        // index left and right index
         int left = 0;
         int right = nums.length -1;
-        System.out.println("right " + right);
-                    System.out.println("left " + left);
+        // System.out.println("right " + right);
+                    // System.out.println("left " + left);
 
 
         while (left <= right) {
