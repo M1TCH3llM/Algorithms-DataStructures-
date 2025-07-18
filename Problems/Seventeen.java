@@ -1,5 +1,106 @@
 package Problems;
 
+import Stack.InfixPostfix.InfixPostfix;
+
 public class Seventeen {
+
+    public class Node {
+     char data;
+    Node next;
     
+       public Node(char data) {
+        this.data = data;
+        this.next = null;
+    }
+
+    public Node top;
+
+    public void push(char data) {
+        Node newNode = new Node(data);
+        newNode.next = top;
+        top = newNode;
+    }
+
+    public char pop() {
+        if (top == null) {
+            throw new RuntimeException("Stack underflow - Cannot pop from an empty stack");
+        }
+        char popped = top.data;
+        top = top.next;
+        return popped;
+    }
+
+    public char peek() {
+        if (top == null) {
+            throw new RuntimeException("Stack is empty - Cannot peek");
+        }
+        return top.data;
+    }
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+}
+
+ public static int precedence(char op){
+        switch (op) {
+            case '+':
+            case '-': return 1;
+            case '*':
+            case '/': return 2;
+            case '^': return 3;
+            default: return -1;
+
+        } 
+    }
+
+    public static String toPostfix(String infix) {
+        InfixPostfix stack = new InfixPostfix();
+        StringBuilder output = new StringBuilder();
+
+        for (int i = 0; i < infix.length(); i ++) {
+            char ch = infix.charAt(i);
+
+            // Check if Expression is valad
+            if (Character.isLetterOrDigit(ch)) {
+                output.append(ch);
+            } else if (ch == '(' ){
+                stack.push(ch);
+            } else if (ch == ')') {
+                while (!stack.isEmpty() && stack.peek() != '(') {
+                    output.append(stack.pop());
+
+                } 
+                if (!stack.isEmpty() && stack.peek() == '(') {
+                    stack.pop(); // discart (
+                } else {
+                    return "Invalid Expression";
+                }
+
+            } else {
+                while (!stack.isEmpty() && precedence(ch) <= precedence(stack.peek())) {
+                    output.append(stack.pop());
+                }
+                stack.push(ch);
+            }
+        }
+        while (!stack.isEmpty()) {
+            if (stack.peek() == '(') return "Invalid Expression";
+                        output.append(stack.pop());
+
+        }
+                return output.toString();
+
+    }
+     public static void main(String[] args) {
+
+        // String expr = "(A+B)*C";
+        String expr = "(A+B)*C-(D/E)";
+        System.out.println("Infix:   " + expr);
+        System.out.println("Postfix: " + toPostfix(expr)); // Should print: AB+C*
+        String postfix = toPostfix(expr);
+        System.out.println("Evaluating Postfix: " + postfix);
+
+     }
+
 }

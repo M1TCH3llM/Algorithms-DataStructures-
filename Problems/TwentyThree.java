@@ -32,7 +32,7 @@ public class TwentyThree {
     }
 
     // Print nodes at a given level in a specific direction
-    static void printLevel(Node node, int level, boolean leftToRight) {
+    static void printLevel(Node node, int level, boolean leftToRight) { 
         if (node == null) return;
 
         if (level == 1) {
