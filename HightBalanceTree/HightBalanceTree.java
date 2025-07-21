@@ -4,30 +4,49 @@ public class HightBalanceTree {
     
  Node root;
 
-    public void insert(Node node) {
+    public void insert(Node newNode) {
+    root = insertHelper(root, newNode);
+}
 
-        root = insertHelper(root, node);
+    private Node insertHelper(Node node, Node newNode) {
 
+        if (node == null) return newNode;
+
+        if (newNode.data < node.data) {
+            node.left = insertHelper(node.left, newNode);
+        } else if (newNode.data > node.data) {
+            node.right = insertHelper(node.right, newNode);
+        } else {
+            return node;
+        }
+
+        updateHeight(node);
+
+        int balance = getBalance(node);
+
+         // Case 1: Left Left 
+    if (balance > 1 && newNode.data < node.left.data) {
+        return rightRotate(node);
     }
-    private Node insertHelper(Node root, Node node) {
 
-        int data = node.data;
+    // Case 2: Right Right
+    if (balance < -1 && newNode.data > node.right.data) {
+        return leftRotate(node);
+    }
 
-        // If the tree is empty, the new node becomes the root
-        if (root == null) {
-            root = node;
-            return root;
-        }
-        // If the data is less than the root's data, insert in the left subtree
-        else if( data < root.data) {
-            root.left = insertHelper(root.left, node);
-        }
-        else {
-            // If the data is greater than or equal to the root's data, insert in the right subtree
-            root.right = insertHelper(root.right, node);
-        }
-        
-         return root;
+    // Case 3: Left Right
+    if (balance > 1 && newNode.data > node.left.data) {
+        node.left = leftRotate(node.left);
+        return rightRotate(node);
+    }
+
+    // Case 4: Right Left
+    if (balance < -1 && newNode.data < node.right.data) {
+        node.right = rightRotate(node.right);
+        return leftRotate(node);
+    }
+
+    return node; 
     }
 
 
@@ -70,13 +89,13 @@ public class HightBalanceTree {
         }
      }
 
-    public void delete(int data) {
-        if (search(data)) {
-        deleteHelper(root, data);
-        } else {
-            System.out.println("Node with value " + data + " not found in the tree.");
-        }
-        }
+   public void delete(int data) {
+    if (search(data)) {
+        root = deleteHelper(root, data); 
+    } else {
+        System.out.println("Node with value " + data + " not found in the tree.");
+    }
+}
 
     private Node deleteHelper(Node root, int data) {
         if(root == null) {
@@ -106,8 +125,43 @@ public class HightBalanceTree {
                 root.left = deleteHelper(root.left, root.data);
             }
         }
+
+        if (root == null) return null;
+
+        updateHeight(root);
+        // Update height
+                updateHeight(root);
+
+                // Check balance
+                int balance = getBalance(root);
+
+                // Left Left
+                if (balance > 1 && getBalance(root.left) >= 0)
+                    return rightRotate(root);
+
+                // Left Right
+                if (balance > 1 && getBalance(root.left) < 0) {
+                    root.left = leftRotate(root.left);
+                    return rightRotate(root);
+                }
+
+                // Right Right
+                if (balance < -1 && getBalance(root.right) <= 0)
+                    return leftRotate(root);
+
+                // Right Left
+                if (balance < -1 && getBalance(root.right) > 0) {
+                    root.right = rightRotate(root.right);
+                    return leftRotate(root);
+                }
+                
+
+                updateHeight(root);
+
+
         return root;
     }
+
     // Find the successor of the node to be deleted
     // The successor is the minimum value in the right subtree
     private int successor(Node root) { // find the minimum value in the right child of this root node
@@ -140,7 +194,9 @@ public class HightBalanceTree {
     }
 
     private void updateHeight(Node n) {
+        if (n != null) {
     n.height = 1 + Math.max(height(n.left), height(n.right));
+        }
 }
 
     public int getRootBalanceFactor() {
@@ -183,7 +239,7 @@ public class HightBalanceTree {
 
         System.out.println("Rotate Left");
 
-        return x;
+        return y;
     }
     
 
