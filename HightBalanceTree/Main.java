@@ -5,7 +5,7 @@ public class Main {
        public static void main(String[] args) {
        HightBalanceTree tree = new HightBalanceTree();
 
-      int[] arr = {52, 36, 38, 68, 24, 23, 27, 26, 59, 60, 72, 70, 80, 75,76 };
+      int[] arr = {30, 20, 40, 10, 25};
             for (int x : arr) {
                tree.insert(new Node(x));
             }
@@ -14,9 +14,13 @@ public class Main {
             System.out.println("Inorder Traversal:");
 
             tree.display();
+            System.out.println("\nTree Hight: " + tree.getTreeHeight());
+            System.out.println("\nTree Balance Value: " + tree.getRootBalanceFactor());
 
-            System.out.println("\ndelete 52:");
-            tree.delete(52);
+
+
+            System.out.println("\ndelete 40:");
+            tree.delete(40);
             tree.display();
 
             System.out.println("\ndelete 0:");
