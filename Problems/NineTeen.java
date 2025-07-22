@@ -1,3 +1,10 @@
+// PROBLEM 19:
+//  Given a stack of integers, sort it in ascending order using another temporary stack.
+// Examples: 
+// Input : [34, 3, 31, 98, 92, 23]
+// Output : [3, 23, 31, 34, 92, 98]
+
+
 package Problems;
 
 import java.util.Stack;
@@ -9,14 +16,17 @@ public class NineTeen {
 
             while(!input.isEmpty())
             {
+                // pop the first element
                 int temp = input.pop();
-
+                // while temporary stack is not empty and top of stack is lesser than temp
                 while(!tempStack.isEmpty() && tempStack.peek() < temp) {
-
+                    // Pop from OG and push into temp
                     input.push(tempStack.pop());
                 }
+                // push temp in to temp stack
                 tempStack.push(temp);
             }
+            // return temp stack
             return tempStack;
          }
 
