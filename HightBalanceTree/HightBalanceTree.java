@@ -1,5 +1,9 @@
 package HightBalanceTree;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class HightBalanceTree {
     
  Node root;
@@ -59,19 +63,99 @@ public class HightBalanceTree {
     }
 
 
-     public void display() {
+    //  public void display() {
 
-        displayHelper(root);
-     }
-     // In-order traversal of the tree
-        // Left, Root, Right
-     private void displayHelper(Node root) {
-        if(root != null) {
-            displayHelper(root.left);
-            System.out.print(root.data + " ");
-            displayHelper(root.right);
-        } 
-     }
+    //     displayHelper(root);
+    //  }
+    //  // In-order traversal of the tree
+    //     // Left, Root, Right
+    //  private void displayHelper(Node root) {
+    //     if(root != null) {
+    //         System.out.print(root.data + " ");
+    //         displayHelper(root.left);
+    //         displayHelper(root.right);
+    //     } 
+    //  }
+
+    public void display() {
+        // Calls tree print and prints entire code 
+    System.out.println(treePrint(root));
+}
+
+// Builds a top-down tree view
+private String treePrint(Node root) {
+    // Checks for Empty tree
+    if (root == null) return "(empty)";
+
+    // calls helper to calculate hight of tree
+    int maxLevel = maxLevel(root);
+    // accumulates string of all text including spacing
+    StringBuilder sb = new StringBuilder();
+
+    // calls recursive function, 1 = level one, maxLevel is height, sb String builder(collect data)
+    printNodeInternal(Collections.singletonList(root), 1, maxLevel, sb);
+    // returns the formatted string to display method
+    return sb.toString();
+}
+
+// Recursive internal printer
+private void printNodeInternal(List<Node> nodes, int level, int maxLevel, StringBuilder sb) {
+    if (nodes.isEmpty() || allElementsNull(nodes)) return;
+
+    int floor = maxLevel - level;
+    int edgeLines = (int) Math.pow(2, Math.max(floor - 1, 0));
+    int firstSpaces = (int) Math.pow(2, floor) - 1;
+    int betweenSpaces = (int) Math.pow(2, floor + 1) - 1;
+
+    sb.append(" ".repeat(firstSpaces));
+
+    List<Node> newNodes = new ArrayList<>();
+    for (Node node : nodes) {
+        if (node != null) {
+            sb.append(node.data);
+            newNodes.add(node.left);
+            newNodes.add(node.right);
+        } else {
+            sb.append(" ");
+            newNodes.add(null);
+            newNodes.add(null);
+        }
+        sb.append(" ".repeat(betweenSpaces));
+    }
+    sb.append("\n");
+
+    for (int i = 1; i <= edgeLines; i++) {
+        for (Node node : nodes) {
+        sb.append(" ".repeat(Math.max(firstSpaces - i, 0)));
+             if (node == null) {
+                sb.append(" ".repeat(edgeLines * 2 + i + 1));
+                continue;
+            }
+
+            sb.append(node.left != null ? "/" : " ");
+            sb.append(" ".repeat(i * 2 - 1));
+            sb.append(node.right != null ? "\\" : " ");
+
+            sb.append(" ".repeat(edgeLines * 2 - i));
+        }
+        sb.append("\n");
+    }
+
+    printNodeInternal(newNodes, level + 1, maxLevel, sb);
+}
+
+// Helper to find max depth
+private int maxLevel(Node node) {
+    return node == null ? 0 : Math.max(maxLevel(node.left), maxLevel(node.right)) + 1;
+}
+
+// Checks if all nodes in a list are null
+private boolean allElementsNull(List<Node> list) {
+    for (Node n : list) if (n != null) return false;
+    return true;
+}
+
+     
      // Search for a node with the given data
         // Returns true if found, false otherwise
      public boolean search(int data) {

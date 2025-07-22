@@ -5,7 +5,7 @@ public class Main {
        public static void main(String[] args) {
        HightBalanceTree tree = new HightBalanceTree();
 
-      int[] arr = {30, 20, 40, 10, 25};
+      int[] arr = {30, 20, 22, 40, 10, 25, 56, 34, 77, 39};
             for (int x : arr) {
                tree.insert(new Node(x));
             }
