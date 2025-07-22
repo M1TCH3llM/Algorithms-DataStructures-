@@ -100,26 +100,40 @@ private String treePrint(Node root) {
 
 // Recursive internal printer
 private void printNodeInternal(List<Node> nodes, int level, int maxLevel, StringBuilder sb) {
+    // Stops function if node is empty
     if (nodes.isEmpty() || allElementsNull(nodes)) return;
 
+    // Number of levels before current
     int floor = maxLevel - level;
+    // number of slashes needed for each level
     int edgeLines = (int) Math.pow(2, Math.max(floor - 1, 0));
+    // calculates leading spaces 
     int firstSpaces = (int) Math.pow(2, floor) - 1;
+    // number of spaces in between
     int betweenSpaces = (int) Math.pow(2, floor + 1) - 1;
 
+    // First space on each line
     sb.append(" ".repeat(firstSpaces));
 
+    // new list that holds next level
     List<Node> newNodes = new ArrayList<>();
+    // loopes through nodes on current level
     for (Node node : nodes) {
+        // if its not null we collect value and record children for next level
         if (node != null) {
+            // adds to stringbuilder
             sb.append(node.data);
+            // adds children to next level for recursion
             newNodes.add(node.left);
             newNodes.add(node.right);
         } else {
+            // if node is empty we account for space
             sb.append(" ");
+            // adds null for children to keep structure
             newNodes.add(null);
             newNodes.add(null);
         }
+
         sb.append(" ".repeat(betweenSpaces));
     }
     sb.append("\n");

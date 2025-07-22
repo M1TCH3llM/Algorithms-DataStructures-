@@ -69,3 +69,6 @@ public class Fifteen {
         System.out.println(sol.palString("8199"));  
      }
 }
+
+// Fix input #2 
+// 00900 => 9 

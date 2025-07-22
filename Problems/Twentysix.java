@@ -41,22 +41,22 @@ public class Twentysix {
                 // Target is in the left Sorted position
                 if(nums[left] <= target && target < nums[mid]) {
                     right = mid - 1; // moves right pointer left of mid because target is in left half
-                      System.out.println("right 1 " + right);
+                    //   System.out.println("right 1 " + right);
 
                 } else {
                     left = mid + 1; // advances left to mid plus one because target is right half
-                                  System.out.println("left 1 " + left);
+                                //   System.out.println("left 1 " + left);
 
                 }
 
             } else {
                   if(nums[mid] <= target && target < nums[right]) {
                     left = mid + 1; 
-                                        System.out.println("left 2 " + left);
+                                        // System.out.println("left 2 " + left);
 
                 } else {
                     right = mid - 1; // advances right to mid minus one because target is in left half
-                       System.out.println("right 2 " + right);
+                    //    System.out.println("right 2 " + right);
 
                 }
             }
