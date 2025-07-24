@@ -30,17 +30,17 @@ public class Twenty {
         Twenty sol = new Twenty();  
 
         String[] tests = {
-            "<<??>>",  // expected 4
-            "??????",  // expected 6
-            "<<?",      // expected 2
-            "<<>>><",  // expected 4
-            "<><>",    // expected 2
-            "><<>>"    // expected 4
+            "<<??>>", 
+            "??????", 
+            "<<?",     
+            "<<>>><", 
+            "<><>",   
+            "><<>>"   
         };
 
         for (String test : tests) {
             System.out.println("Input: " + test + 
-                " → Longest symmetric length = " + sol.solution(test));
+                " Longest symmetric length = " + sol.solution(test));
         }
     }
 }
