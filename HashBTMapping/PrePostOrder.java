@@ -17,8 +17,8 @@ public class PrePostOrder {
         // Use all elements in pre order 
         if (preIndex[0] >= size || l > h)
             return null;
-            System.out.println("branch split:" + h);
-            System.out.println("root pointer: " + l);
+            // System.out.println("branch split:" + h);
+            // System.out.println("root pointer: " + l);
             
 
         // create root in sub tree with pre index then increment to move to the next spot for future recursive calls
@@ -35,7 +35,7 @@ public class PrePostOrder {
             if (pre.get(preIndex[0]) == post.get(i))
                 break;
         }
-        System.out.println("left most child " + i);
+        // System.out.println("left most child " + i);
         if (i <= h) {
             // build left sub tree 
             root.left = buildTree(pre, post, preIndex, l, i, size);
