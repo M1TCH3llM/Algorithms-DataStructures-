@@ -56,3 +56,6 @@ public class AddEdge {
 
 // String[] vertex = {"V1", "V2", "V3", "V4", "V5", "V6"};
 // String[][] edges = {{"V1","V2"}, {"V1","V4"},{"V2","V3"}, {"V2","V6"}, {"V3","V5"}, {"V3","V6"}, {"V4","V3"}, {"V4","V5"}};
+
+// linked list implementation of graph 
+// DFS & BFS implementation
