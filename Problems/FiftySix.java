@@ -61,7 +61,11 @@ public class FiftySix {
 
     public static void main(String[] args) {
 
-        int[][] mat = {{2, 1, 0, 2, 1},
+        // int[][] mat = {{2, 1, 0, 2, 1},
+                    //    {1, 0, 1, 2, 1}, 
+                    //    {1, 0, 0, 2, 1}};
+
+        int[][] mat = {{1, 1, 0, 2, 1}, // Test Case where ripe oranges remain
                        {1, 0, 1, 2, 1}, 
                        {1, 0, 0, 2, 1}};
 
