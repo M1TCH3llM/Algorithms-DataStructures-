@@ -15,9 +15,10 @@ public class Main {
 
         // Distance array initialized with "infinity"
         int[] dist = new int[V];
-        Arrays.fill(dist, Integer.MAX_VALUE);
-        dist[src] = 0; // Distance to self is 0
+        Arrays.fill(dist, Integer.MAX_VALUE); 
+        dist[src] = 0; // first iteration set to index 0
         // System.out.println("Distance  " + dist);
+         
 
 
         // PriorityQueue to always pick node with shortest distance
@@ -46,7 +47,7 @@ public class Main {
                 }
             }
         }
-
+      
         return dist;
     }
 
@@ -87,12 +88,12 @@ public class Main {
             {3, 4, 6}   // v4 -> v5
         };
 
-        int src = 0; // Starting from v1 (index 0)
+        int src = 3; // Starting from v1 (index 0)
 
         int[] dist = dijkstra(V, edges, src);
 
         // Output distances from source
-        System.out.println("Shortest distances from v1:");
+        System.out.println("Shortest distances from v4:");
         for (int i = 0; i < V; i++) {
             System.out.println("v" + (src + 1) + " to v" + (i + 1) + " = " + dist[i]);
         }
