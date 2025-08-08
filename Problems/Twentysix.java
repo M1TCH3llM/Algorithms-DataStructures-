@@ -30,7 +30,7 @@ public class Twentysix {
         while (left <= right) {
             // uses array position of left and right to determine mid
             int mid = left + (right - left) / 2;
-            System.out.println("mid " + mid);
+            // System.out.println("mid " + mid);
             // if mid is target return
             if (nums[mid] == target) {
             return mid;
@@ -73,10 +73,13 @@ public class Twentysix {
 
            int[] nums2 = {4, 5, 6, 7, 0, 1, 2};
         int target2 = 3;
-        System.out.println(search(nums2, target2)); // Output: -1
+        System.out.println("Target at: " + search(nums2, target2)); // Output: -1
            
         int[] nums3 = {6, 7, 0, 1, 2, 4, 5};
-        int target3 = 3;
-        System.out.println(search(nums3, target3)); // Output: -1
+        int target3 = 4;
+        System.out.println("Target at: " + search(nums3, target3)); 
     }
 }
+
+
+// 27 28 29 30 & 59

@@ -3,24 +3,19 @@ package Dinamic;
 public class Main {
 
     static int maxArray(int[] arr) {
-        // Store max sum so far 
-        int res =arr[0];
+    int n = arr.length;
+    int[] dp = new int[n]; // dp[i] = max sum ending at i
 
-        // max ending at current position
-        int maxEnd = arr[0];
+    dp[0] = arr[0];
+    int res = dp[0];
 
-        for (int i = 1; i < arr.length; i ++) {
-
-            // Either extend or start new from current
-            maxEnd = Math.max(maxEnd + arr[i], arr[i]);
-            System.out.println("arr " + arr[i]);
-            System.out.println("maxEnd " + maxEnd);
-            // Update result if new subarray sum is larger 
-            res = Math.max(res, maxEnd);
-            System.out.println("res " + res);
-        }
-        return res;
+    for (int i = 1; i < n; i++) {
+        dp[i] = Math.max(dp[i - 1] + arr[i], arr[i]); // reuse dp[i-1]
+        res = Math.max(res, dp[i]);
     }
+
+    return res;
+}
 
     public static void main(String[] args) {
         int[] arr = {-2,1,-3,4,-1,2,1,-5,4};

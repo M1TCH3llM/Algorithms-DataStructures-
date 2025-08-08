@@ -12,9 +12,9 @@
 
 //  Example:2
 //  Input:
-//  grid =["0 E 0 0",
-//     	"E E W E",
-//     	"0 E 0 0"]
+//         {{ '0', 'E', '0', '0'},
+//     	   { 'E', 'E', 'W', 'E'},
+//         { '0', 'E', '0', '0'}}
 // Output: 2
 
 // Explanation:
@@ -26,3 +26,4 @@ public class FiftyNine {
     
 }
 
+// 27 28 29 30 & 59
