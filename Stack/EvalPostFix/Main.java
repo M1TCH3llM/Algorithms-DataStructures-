@@ -99,7 +99,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String expr = "(7+10)*4-(8/2)";
+        String expr = "a * b + ( ( c - d ) * p - q * s ) / r + m / ( n * x )"
+;
         System.out.println("Infix:   " + expr);
         String postfix = toPostfix(expr);
         System.out.println("Postfix: " + postfix);

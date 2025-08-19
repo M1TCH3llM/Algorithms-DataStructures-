@@ -86,7 +86,7 @@ public class FiftyEight {
     }
 
     public static void main(String[] args) {
-        List<String> words = Arrays.asList("oath","pea","eat","rain");
+        List<String> words = Arrays.asList("oath","pea","eat","rain", "ethk");
         char[][] letters = {
                  {'o','a','a','n'},
                  {'e','t','a','e'},

@@ -1,7 +1,7 @@
 package HashBTMapping;
 
 public class HashTable {
-     private final int SIZE = 10;
+     private final int SIZE = 11;
     private Node[] buckets;
 
     static class Node {
