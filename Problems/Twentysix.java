@@ -73,8 +73,8 @@ public class Twentysix {
 
            int[] nums2 = {4, 5, 6, 7, 0, 1, 2};
         int target2 = 3;
-        System.out.println("Target at: " + search(nums2, target2)); // Output: -1
-           
+        System.out.println("Target at: " + search(nums2, target2)); 
+
         int[] nums3 = {6, 7, 0, 1, 2, 4, 5};
         int target3 = 4;
         System.out.println("Target at: " + search(nums3, target3)); 
@@ -82,4 +82,4 @@ public class Twentysix {
 }
 
 
-// 27 28 29 30 & 59
+// 27 28 29 30 & 59 
