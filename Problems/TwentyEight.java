@@ -45,7 +45,9 @@ public class TwentyEight {
     }
 
     public void main(String[] args) {
-        TwentyEight array = new TwentyEight();
+        
+
+
 
     }
 }
