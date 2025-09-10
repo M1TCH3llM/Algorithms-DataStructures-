@@ -8,7 +8,7 @@ public class Thirty {
         for (int i = 0; i < n; i++) {
             if (s[i] != '?') continue;
 
-            // try 'a' first, else use 'b'
+        
             s[i] = pick(s, i, 'a') ? 'a' : 'b';
         }
         return new String(s);
